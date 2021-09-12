@@ -22,7 +22,7 @@ func main() {
 	e.GET("/", hello)
 
 	// Start server
-	e.Logger.Fatal(e.Start(":9001"))
+	e.Logger.Fatal(e.Start(":8080"))
 }
 
 // Handler
