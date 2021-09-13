@@ -12,15 +12,13 @@ RUN go mod download
 
 COPY *.go ./
 
-RUN go build -tags netgo -a -v -o /cryar-api
+RUN go build -o /cryar-api
 
 ##
 ## Deploy
 ##
 
-# FROM debian:buster-slim
-
-FROM alpine:latest
+FROM debian:buster-slim
 
 WORKDIR /
 
