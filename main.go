@@ -40,7 +40,7 @@ func hello(c echo.Context) error {
 }
 
 func getUsers(c echo.Context) error {
-	dsn := "root:richeir@tcp(127.0.0.1:3306)/cryar?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:password@tcp(172.16.238.101:3306)/db?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {
