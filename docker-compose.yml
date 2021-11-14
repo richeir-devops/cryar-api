@@ -1,5 +1,6 @@
 version: "3.9" 
 services:
+  # Core API
   cryar-api:
     depends_on: 
       - mysql-db
@@ -12,6 +13,8 @@ services:
       - "9001:8080"
     environment:
       - MySQL_IP_Address
+  
+  # SQL Database
   mysql-db:
     image: mysql:latest
     restart: always
@@ -25,6 +28,7 @@ services:
       MYSQL_ROOT_PASSWORD: 'password'
     networks: 
       backend:
+        # read from .env
         ipv4_address: ${MySQL_IP_Address}
     ports:
       # <Port exposed> : < MySQL Port running inside container>
@@ -36,6 +40,7 @@ services:
     volumes:
       - "mysql-docker:/var/lib/mysql"
 
+  # ELK as follow
   elasticsearch:
     build:
       context: elasticsearch/
@@ -106,7 +111,9 @@ services:
 
 # Names our volume
 volumes:
+  # volume for MySQL
   mysql-docker:
+  # volume for ELK
   elasticsearch:
 # Network config
 networks: 

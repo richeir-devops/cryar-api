@@ -31,6 +31,14 @@ func main() {
 	e.GET("/", hello)
 	e.GET("/users", getUsers)
 
+	// Create a Consul API client
+	// client, _ := api.NewClient(api.DefaultConfig())
+
+	// Create an instance representing this service. "my-service" is the
+	// name of _this_ service. The service should be cleaned up via Close.
+	// svc, _ := connect.NewService("my-service", client)
+	// defer svc.Close()
+
 	// Start server
 	e.Logger.Fatal(e.Start(":8080"))
 }
